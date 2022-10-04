@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: my-k8s-app
+  name: my-k8s-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-k8s-app
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: my-k8s-app
+    spec:
+      containers:
+        - name: my-k8s-app
+          image: kenriortega/k8sgoapp:v0.0.1
+          resources: {}
