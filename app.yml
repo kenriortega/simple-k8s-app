@@ -18,4 +18,5 @@ spec:
       containers:
         - name: my-k8s-app
           image: kenriortega/k8sgoapp:v0.0.1
+#          imagePullPolicy: Always
           resources: {}

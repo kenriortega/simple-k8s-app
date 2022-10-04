@@ -18,6 +18,7 @@ var (
 
 func main() {
 	kubeconfig := flag.String("kubeconfig", defaultKubeConfig, "location to your kube config file")
+	namespace := flag.String("namespace", "playground", "namespace to watch")
 	flag.Parse()
 	config, err := clientcmd.BuildConfigFromFlags("", *kubeconfig)
 	if err != nil {
@@ -31,7 +32,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	pods, err := client.CoreV1().Pods("").List(ctx, metav1.ListOptions{})
+	pods, err := client.CoreV1().Pods(*namespace).List(ctx, metav1.ListOptions{})
 	if err != nil {
 		log.Fatal(err)
 	}

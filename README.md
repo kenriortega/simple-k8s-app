@@ -3,17 +3,13 @@
 > Comands
 
 ```shell
-kubectl create namespace kapps
-```
-
-```shell
 kubectl create role poddepl --resource pod,deployment --verb list
 ```
 
 ```shell
-kubectl create rolebinding poddepl --role poddepl --serviceaccount kapps:kapps
+kubectl create rolebinding poddepl --role poddepl --serviceaccount default:default
 ```
 
 ```shell
-kubectl create -f app.yml -n kapps
+kubectl create -f app.yml
 ```
